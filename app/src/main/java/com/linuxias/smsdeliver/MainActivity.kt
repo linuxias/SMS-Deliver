@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.linuxias.smsdeliver.ui.HistoryFragment
@@ -47,5 +49,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         )
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_filter_graph)
+        return navController.navigateUp()
     }
 }
