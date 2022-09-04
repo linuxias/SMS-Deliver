@@ -9,18 +9,22 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.linuxias.smsdeliver.databinding.ActivityMainBinding
 import com.linuxias.smsdeliver.ui.HistoryFragment
 import com.linuxias.smsdeliver.ui.ListFragment
 import com.linuxias.smsdeliver.ui.MoreSettingFragment
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     private lateinit var historyFragment: Fragment
     private lateinit var listFragment: Fragment
     private lateinit var moreSettingFragment: Fragment
+    private var selectedFragment: Fragment ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         historyFragment = HistoryFragment()
         listFragment = ListFragment()
@@ -28,31 +32,19 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().replace(R.id.container, listFragment).commit()
 
-        val bottomnavigationView = findViewById(R.id.bottom_navigation) as NavigationBarView
-        bottomnavigationView.setOnItemSelectedListener (
-            object: NavigationBarView.OnItemSelectedListener {
-                override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                    var selectedFragment: Fragment ?= null
-                    when(item.itemId) {
-                        R.id.histroy -> selectedFragment = historyFragment
-                        R.id.more -> selectedFragment = moreSettingFragment
-                        R.id.list -> selectedFragment = listFragment
-                    }
-                    selectedFragment?.let {
-                        supportFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.container, selectedFragment)
-                            .commit()
-                        return true
-                    }
-                    return false
-                }
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.histroy -> selectedFragment = historyFragment
+                R.id.more -> selectedFragment = moreSettingFragment
+                R.id.list -> selectedFragment = listFragment
             }
-        )
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_filter_graph)
-        return navController.navigateUp()
+            selectedFragment?.let {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container, it)
+                    .commit()
+            }
+            true
+        }
     }
 }

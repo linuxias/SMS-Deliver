@@ -12,7 +12,6 @@ import com.linuxias.smsdeliver.R
 import com.linuxias.smsdeliver.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
-    private lateinit var navController: NavController
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
@@ -27,10 +26,10 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-
         binding.filterAddBtn.setOnClickListener {
-            navController.navigate(R.id.action_listFragment_to_filterSetupFragment)
+            FilterSetupFragment().show(
+                childFragmentManager, "TAG"
+            )
         }
     }
 
