@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -27,3 +27,10 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew app:assembleDebug
+
+    - name: Run test
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        arch: 'x86_64'
+        api-level: 30
+        script: ./gradlew app:connectedDebugAndroidTest
