@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FilterSetupFragment">
+    tools:context=".ui.filtersetup.FilterSetupFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/input_recevier_number"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,7 @@
     <string name="app_name">SMS Deliver</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- -->
+    <string name="input_recevier_number">메시지를 전달받을 전화번호를 입력하세요.</string>
 </resources>

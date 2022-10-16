@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdk 32
-
+    namespace 'com.linuxias.smsdeliver'
     defaultConfig {
         applicationId "com.linuxias.smsdeliver"
         minSdk 30

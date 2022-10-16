@@ -1,4 +1,4 @@
-package com.linuxias.smsdeliver.ui
+package com.linuxias.smsdeliver.ui.history
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

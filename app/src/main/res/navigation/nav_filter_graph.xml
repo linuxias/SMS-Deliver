@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.linuxias.smsdeliver.ui.ListFragment"
+        android:name="com.linuxias.smsdeliver.ui.filterlist.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <dialog
         android:id="@+id/filterSetupFragment"
-        android:name="com.linuxias.smsdeliver.ui.FilterSetupFragment"
+        android:name="com.linuxias.smsdeliver.ui.filtersetup.FilterSetupFragment"
         android:label="fragment_filter_setup"
         tools:layout="@layout/fragment_filter_setup" />
 </navigation>

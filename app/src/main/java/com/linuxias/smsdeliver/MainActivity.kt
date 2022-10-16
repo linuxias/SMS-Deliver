@@ -2,17 +2,11 @@ package com.linuxias.smsdeliver
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
 import com.linuxias.smsdeliver.databinding.ActivityMainBinding
-import com.linuxias.smsdeliver.ui.HistoryFragment
-import com.linuxias.smsdeliver.ui.ListFragment
-import com.linuxias.smsdeliver.ui.MoreSettingFragment
+import com.linuxias.smsdeliver.ui.history.HistoryFragment
+import com.linuxias.smsdeliver.ui.filterlist.ListFragment
+import com.linuxias.smsdeliver.ui.setting.MoreSettingFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
