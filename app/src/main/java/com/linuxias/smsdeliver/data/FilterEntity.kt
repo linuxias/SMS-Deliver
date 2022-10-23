@@ -6,12 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "FilterTable")
 data class FilterEntity (
-    @PrimaryKey(autoGenerate=true)
-    var id : Int? = null,
-
     @ColumnInfo
     val receiverNumber: String,
 
     @ColumnInfo
-    val filterRegex: String
+    val filterRegex: String,
+
+    @PrimaryKey(autoGenerate=true)
+    val id : Int = 0,
 )
