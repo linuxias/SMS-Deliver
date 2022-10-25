@@ -8,14 +8,14 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.linuxias.smsdeliver.data.FilterDatabase
-import com.linuxias.smsdeliver.data.FilterRepository
+import com.linuxias.smsdeliver.data.FilterRepositoryImpl
 import com.linuxias.smsdeliver.databinding.FragmentFilterSetupBinding
 import com.linuxias.smsdeliver.ui.FilterViewModel
 import com.linuxias.smsdeliver.ui.FilterViewModelFactory
 
 class FilterSetupFragment : DialogFragment() {
     private val filterViewModel: FilterViewModel by activityViewModels() {
-        FilterViewModelFactory(FilterRepository(FilterDatabase.getDatabase(requireActivity()).filterDao()))
+        FilterViewModelFactory(FilterRepositoryImpl(FilterDatabase.getDatabase(requireActivity()).filterDao()))
     }
 
     private var _binding: FragmentFilterSetupBinding? = null
