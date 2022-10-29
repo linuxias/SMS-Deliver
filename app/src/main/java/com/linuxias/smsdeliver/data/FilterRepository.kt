@@ -1,7 +1,5 @@
 package com.linuxias.smsdeliver.data
 
-import androidx.annotation.WorkerThread
-
 interface FilterRepository {
     suspend fun insert(filterEntity: FilterEntity)
 

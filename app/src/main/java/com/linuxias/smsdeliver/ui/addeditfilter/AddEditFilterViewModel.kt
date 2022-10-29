@@ -16,7 +16,7 @@ import java.security.InvalidParameterException
 class FilterViewModel(
     private val repository: FilterRepository,
 ): ViewModel() {
-    fun saveFilter(filterID: String, number: String, filter: String) {
+    fun saveFilter(number: String, filter: String, filterID: String? = null) {
         if (number.isEmpty() || filter.isEmpty()) {
             throw InvalidParameterException("Invalid parameter")
         }
@@ -33,9 +33,6 @@ class FilterViewModel(
     }
 
     private fun updateExistedFilter(filterID: String, number: String, filter: String) = viewModelScope.launch {
-        if (filterID == null)
-            throw RuntimeException("updateExistedFilter() was called but task is new.")
-
         val filterEntity = FilterEntity(number, filter, filterID)
         repository.insert(filterEntity)
     }

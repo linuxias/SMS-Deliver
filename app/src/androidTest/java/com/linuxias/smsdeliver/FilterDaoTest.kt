@@ -39,9 +39,9 @@ class FilterDaoTest {
     @Test
     fun insertFilterTest() = runTest {
         val entity = FilterEntity(
-            id = 1,
             receiverNumber = "010-1234-5678",
-            filterRegex = "RegexTest"
+            filterRegex = "RegexTest",
+            id = "1",
         )
 
         dao.insertFilter(entity)
@@ -53,9 +53,9 @@ class FilterDaoTest {
     @Test
     fun deleteFilterTest() = runTest {
         val entity = FilterEntity(
-            id = 1,
             receiverNumber = "010-1234-5678",
-            filterRegex = "RegexTest"
+            filterRegex = "RegexTest",
+            id = "1"
         )
 
         dao.insertFilter(entity)
