@@ -1,4 +1,4 @@
-package com.linuxias.smsdeliver.ui.filtersetup
+package com.linuxias.smsdeliver.ui.addeditfilter
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -10,16 +10,16 @@ import androidx.navigation.fragment.findNavController
 import com.linuxias.smsdeliver.data.FilterDatabase
 import com.linuxias.smsdeliver.data.FilterRepositoryImpl
 import com.linuxias.smsdeliver.databinding.FragmentFilterSetupBinding
-import com.linuxias.smsdeliver.ui.FilterViewModel
-import com.linuxias.smsdeliver.ui.FilterViewModelFactory
 
-class FilterSetupFragment : DialogFragment() {
+class AddEditFilterFragment : DialogFragment() {
     private val filterViewModel: FilterViewModel by activityViewModels() {
         FilterViewModelFactory(FilterRepositoryImpl(FilterDatabase.getDatabase(requireActivity()).filterDao()))
     }
 
     private var _binding: FragmentFilterSetupBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var filterID: String
 
     override fun onCreateDialog(
         savedInstanceState: Bundle?
@@ -29,7 +29,8 @@ class FilterSetupFragment : DialogFragment() {
         binding.btnSave.setOnClickListener {
             val receiverNumber = binding.editTextPhone.text.toString()
             val filterRegex = binding.editTextRegex.text.toString()
-            filterViewModel.insertFilter(receiverNumber, filterRegex)
+
+            filterViewModel.saveFilter(filterID, receiverNumber, filterRegex)
             findNavController().popBackStack()
         }
 

@@ -16,7 +16,7 @@
     </fragment>
     <dialog
         android:id="@+id/filterSetupFragment"
-        android:name="com.linuxias.smsdeliver.ui.filtersetup.FilterSetupFragment"
+        android:name="com.linuxias.smsdeliver.ui.addeditfilter.AddEditFilterFragment"
         android:label="fragment_filter_setup"
         tools:layout="@layout/fragment_filter_setup" />
 </navigation>

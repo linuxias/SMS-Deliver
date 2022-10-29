@@ -20,4 +20,17 @@ class FilterRepositoryImpl(private val filterDao: FilterDao): FilterRepository {
     override suspend fun deleteFilter(filterEntity: FilterEntity) {
         filterDao.deleteFilter(filterEntity)
     }
+
+    override suspend fun getFilterById(filterID: String): Result<FilterEntity> {
+        try {
+            val entity = filterDao.getFilterById(filterID)
+            if (entity != null) {
+                return Result.Success(entity)
+            } else {
+                return Result.Error(Exception("Entity not found"))
+            }
+        } catch (e: Exception) {
+            return Result.Error(e)
+        }
+    }
 }

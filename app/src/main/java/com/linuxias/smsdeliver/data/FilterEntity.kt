@@ -3,15 +3,16 @@ package com.linuxias.smsdeliver.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "FilterTable")
 data class FilterEntity (
-    @ColumnInfo
+    @ColumnInfo(name = "number")
     val receiverNumber: String,
 
-    @ColumnInfo
+    @ColumnInfo(name = "regex")
     val filterRegex: String,
 
-    @PrimaryKey(autoGenerate=true)
-    val id : Int = 0,
+    @PrimaryKey @ColumnInfo(name = "filterID")
+    var id: String = UUID.randomUUID().toString()
 )

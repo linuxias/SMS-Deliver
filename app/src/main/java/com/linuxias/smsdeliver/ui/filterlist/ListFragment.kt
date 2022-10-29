@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.linuxias.smsdeliver.databinding.FragmentListBinding
-import com.linuxias.smsdeliver.ui.filtersetup.FilterSetupFragment
+import com.linuxias.smsdeliver.ui.addeditfilter.AddEditFilterFragment
 
 class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
@@ -24,7 +24,7 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.filterAddBtn.setOnClickListener {
-            FilterSetupFragment().show(
+            AddEditFilterFragment().show(
                 childFragmentManager, "TAG"
             )
         }
