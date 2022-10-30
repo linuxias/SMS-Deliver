@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.security.InvalidParameterException
 
-class FilterViewModel(
+class AddEditFilterViewModel(
     private val repository: FilterRepository,
 ): ViewModel() {
     fun saveFilter(number: String, filter: String, filterID: String? = null) {
@@ -40,9 +40,9 @@ class FilterViewModel(
 
 class FilterViewModelFactory(private val repository: FilterRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(FilterViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(AddEditFilterViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return FilterViewModel(repository) as T
+            return AddEditFilterViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

@@ -3,7 +3,7 @@ package com.linuxias.smsdeliver.data
 interface FilterRepository {
     suspend fun insert(filterEntity: FilterEntity)
 
-    fun getAllFilters() : List<FilterEntity>
+    suspend fun getAllFilters() : Result<List<FilterEntity>>
 
     suspend fun deleteFilter(filterEntity: FilterEntity)
 

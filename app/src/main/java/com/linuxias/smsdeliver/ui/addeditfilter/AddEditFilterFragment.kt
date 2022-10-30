@@ -12,7 +12,7 @@ import com.linuxias.smsdeliver.data.FilterRepositoryImpl
 import com.linuxias.smsdeliver.databinding.FragmentFilterSetupBinding
 
 class AddEditFilterFragment : DialogFragment() {
-    private val filterViewModel: FilterViewModel by activityViewModels() {
+    private val filterViewModel: AddEditFilterViewModel by activityViewModels() {
         FilterViewModelFactory(FilterRepositoryImpl(FilterDatabase.getDatabase(requireActivity()).filterDao()))
     }
 

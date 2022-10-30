@@ -11,8 +11,8 @@ class FilterRepositoryImpl(private val filterDao: FilterDao): FilterRepository {
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    override fun getAllFilters() : List<FilterEntity> {
-        return filterDao.getAllFilters()
+    override suspend fun getAllFilters() : Result<List<FilterEntity>> {
+        return Result.Success(filterDao.getAllFilters())
     }
 
     @Suppress("RedundantSuspendModifier")
