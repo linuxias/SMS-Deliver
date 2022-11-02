@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.linuxias.smsdeliver.databinding.FragmentListBinding
 import com.linuxias.smsdeliver.ui.addeditfilter.AddEditFilterActivity
 
 class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +26,8 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclerView = binding.filterRecyclerView
+
         binding.filterAddBtn.setOnClickListener {
             startActivity(Intent(requireContext(), AddEditFilterActivity::class.java))
         }

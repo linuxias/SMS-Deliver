@@ -1,0 +1,50 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/number_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textStyle="bold"
+        android:text="보내는 사람"
+        app:layout_constraintBottom_toTopOf="@+id/filter_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/filter_text"
+        app:layout_constraintStart_toEndOf="@+id/number_title"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="010-9212-2533"/>
+
+    <TextView
+        android:id="@+id/filter_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textStyle="bold"
+        android:text="전달 할 텍스트"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number_title"
+        />
+
+    <TextView
+        android:id="@+id/filter_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/filter_title"
+        app:layout_constraintTop_toBottomOf="@+id/number_text"
+        tools:text="2022-10-17"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

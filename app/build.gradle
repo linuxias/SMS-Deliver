@@ -54,6 +54,9 @@ dependencies {
     implementation 'androidx.test:runner:1.4.0'
     kapt "androidx.room:room-compiler:2.4.3"
 
+    // Recycler
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation "androidx.arch.core:core-testing:2.1.0"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2."
