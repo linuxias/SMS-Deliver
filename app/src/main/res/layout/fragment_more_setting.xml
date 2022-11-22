@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.setting.MoreSettingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/more_setting_compose_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hello_setting_fragment" />
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
